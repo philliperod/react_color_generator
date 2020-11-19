@@ -11,7 +11,7 @@ function App() {
     event.preventDefault();
     try {
       let colors = new Values(color).all(10);
-      console.log(colors);
+      setList(colors);
     } catch (error) {
       setError(true);
       console.log(error);
@@ -39,6 +39,7 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => {
+          console.log(color);
           return <SingleColor key={index} {...color} index={index} />;
         })}
       </section>
@@ -48,7 +49,4 @@ function App() {
 
 export default App;
 
-// in the section tag where you will output the colors, we want to iterate over the state array list of colors
-// we want two things in the array: every color in the list and its index
-// we'll return the SingleColor component
-// since it is a list, we'll need the key attribute equal to the index, pass all the objects in the array using spread operator, and pass the index attribute with index
+// forgot to use state function setList that access that the state value color in the try...catch statement which it will return if no error
