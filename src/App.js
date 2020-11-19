@@ -38,7 +38,9 @@ function App() {
         </form>
       </section>
       <section className="colors">
-        <h4>list goes here</h4>
+        {list.map((color, index) => {
+          return <SingleColor key={index} {...color} index={index} />;
+        })}
       </section>
     </>
   );
@@ -46,6 +48,7 @@ function App() {
 
 export default App;
 
-// for handleSubmit function, we want to access value.js and set it to a variable
-// setup a try...catch statement inside the function to throw an error if user enter wrong input
-// inside JSX and the input, create the className attribute and setup an if statement which will check if the state value error is true then add the error class (adds red border on input)
+// in the section tag where you will output the colors, we want to iterate over the state array list of colors
+// we want two things in the array: every color in the list and its index
+// we'll return the SingleColor component
+// since it is a list, we'll need the key attribute equal to the index, pass all the objects in the array using spread operator, and pass the index attribute with index
