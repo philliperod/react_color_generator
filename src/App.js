@@ -9,6 +9,13 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    try {
+      let colors = new Values(color).all(10);
+      console.log(colors);
+    } catch (error) {
+      setError(true);
+      console.log(error);
+    }
   };
 
   return (
@@ -23,6 +30,7 @@ function App() {
               setColor(event.target.value);
             }}
             placeholder="#f15025"
+            className={`${error ? 'error' : null}`}
           />
           <button type="submit" className="btn">
             Generate
@@ -38,9 +46,6 @@ function App() {
 
 export default App;
 
-// setup an useState for colors that needs to be generated; default will be an empty string
-// setup an useState to return an error; default will be false boolean
-// setup an useState to create a list of colors; default will be an array
-// create a function that will handle the submission of the input hex values
-// in JSX, your form will have the onSubmit attribute to handle the submission function
-// input: value attribute will access the color state value; onChange attribute will run the state function which will target the input field and update the state value
+// for handleSubmit function, we want to access value.js and set it to a variable
+// setup a try...catch statement inside the function to throw an error if user enter wrong input
+// inside JSX and the input, create the className attribute and setup an if statement which will check if the state value error is true then add the error class (adds red border on input)
