@@ -5,7 +5,7 @@ import Values from 'values.js';
 function App() {
   const [color, setColor] = useState('');
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values('#2d87c8').all(10));
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +29,7 @@ function App() {
             onChange={(event) => {
               setColor(event.target.value);
             }}
-            placeholder="#f15025"
+            placeholder="#2d87c8"
             className={`${error ? 'error' : null}`}
           />
           <button type="submit" className="btn">
@@ -39,7 +39,9 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => {
-          return <SingleColor key={index} {...color} index={index} />;
+          return (
+            <SingleColor key={index} {...color} index={index} hexColor={color.hex} />
+          );
         })}
       </section>
     </>
