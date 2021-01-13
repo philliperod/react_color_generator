@@ -1,4 +1,4 @@
-Demo:  https://react-color-generator-practice-project.netlify.app
+Demo:  https://react-colorgenerator-project.netlify.app
 
 
 # Getting Started with Create React App
